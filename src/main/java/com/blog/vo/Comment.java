@@ -2,18 +2,25 @@ package com.blog.vo;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 
 @Entity
 @Table(name = "comment")
 public class Comment {
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="id")
 	private Long id;
 	
 	
-	@Column(name="postId")
+	@Column(name="post_id")
 	private Long postId;
 	
 	@Column(name="user")
@@ -48,7 +55,7 @@ public class Comment {
 		return postId;
 	}
 	
-	public void setPostId(Long PostId) {
+	public void setPostId(Long postId) {
 		this.postId = postId;
 	}
 	
@@ -73,8 +80,5 @@ public class Comment {
 	public void setRegDate(Date regDate) {
 		this.regDate =  regDate;
 	}
-	
-	
-	
 	
 }
